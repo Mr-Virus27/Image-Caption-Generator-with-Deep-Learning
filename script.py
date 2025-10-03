@@ -199,15 +199,4 @@ def generate_caption_and_display(imagename, mapping, features, model, tokenizer,
 ''',
 }
 
-# Write out all steps as .py files
-for fname, code in sections.items():
-    with open(os.path.join(project_dir, fname), "w") as f:
-        f.write(code)
 
-# Make zip
-zipname = "image_caption_steps.zip"
-with zipfile.ZipFile(zipname, "w") as zipf:
-    for fname in sections:
-        zipf.write(os.path.join(project_dir, fname), os.path.join("image_caption_steps", fname))
-
-zipname
